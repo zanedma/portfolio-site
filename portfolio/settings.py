@@ -121,6 +121,7 @@ DATABASES['default'].update(db_from_env)
 
 USE_S3 = os.getenv('USE_S3') == 'True'
 
+
 if USE_S3:
     # aws settings
     AWS_ACCESS_KEY_ID = os.getenv('AWS_ACCESS_KEY_ID')
