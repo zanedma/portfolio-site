@@ -75,6 +75,16 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'portfolio.wsgi.application'
 
+
+# Database
+# https://docs.djangoproject.com/en/3.0/ref/settings/#databases
+# HACK:
+
+DATABASES = {
+    'default': {}
+}
+
+
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
 
@@ -108,16 +118,13 @@ USE_L10N = True
 USE_TZ = True
 
 # Heroku: Update database configuration from $DATABASE_URL.
-DATABASES ={
-    'default': {}
-}
 import dj_database_url
 db_from_env = dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(db_from_env)
 
 # Simplified static file serving.
 # https://warehouse.python.org/project/whitenoise/
-STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 USE_S3 = os.getenv('USE_S3') == 'True'
 
@@ -133,12 +140,11 @@ if USE_S3:
     # s3 static settings
     STATIC_LOCATION = 'static'
     STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{STATIC_LOCATION}/'
-    STATICFILES_STORAGE = 'portfolio.storage_backends.StaticStorage'
+    STATICFILES_STORAGE = 'hello_django.storage_backends.StaticStorage'
     # s3 public media settings
     PUBLIC_MEDIA_LOCATION = 'media'
     MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{PUBLIC_MEDIA_LOCATION}/'
-    DEFAULT_FILE_STORAGE = 'portfolio.storage_backends.PublicMediaStorage'
-    # AWS_S3_REGION_NAME = 'us-west'
+    DEFAULT_FILE_STORAGE = 'hello_django.storage_backends.PublicMediaStorage'
 else:
     STATIC_ROOT = os.path.join(BASE_DIR, 'static')
     # The URL to use when referring to static files (where they will be served from)
