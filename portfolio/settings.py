@@ -120,8 +120,6 @@ DATABASES['default'].update(db_from_env)
 # STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
 
 USE_S3 = os.getenv('USE_S3') == 'True'
-USE_S3 = False
-
 
 if USE_S3:
     # aws settings
