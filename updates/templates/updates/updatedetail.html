@@ -16,10 +16,7 @@
         <hr>
         <p>{{ update.body|linebreaks }}</p>
         <div class="btn-group">
-          <button type="button" class="btn btn-primary">
-            <a href="{% url 'updates' %}" style="text-decoration:none; color:white;">All updates</a>
-          </button>
-
+          <a href="{% url 'updates' %}" class="btn btn-primary">All updates</a>
         </div>
       </div>
     </main>

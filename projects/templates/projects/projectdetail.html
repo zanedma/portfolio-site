@@ -16,14 +16,11 @@
         <hr>
         <p>{{ project.body|linebreaks }}</p>
         {% if project.link != None %}
-          <a href="{{ project.link }}" target="blank">Link</a>
+          <a href="{{ project.link }}" target="blank">GitHub</a>
         {% endif %}
         <hr/>
         <div class="btn-group">
-          <button type="button" class="btn btn-primary">
-            <a href="{% url 'projects' %}" style="text-decoration:none; color:white;">All projects</a>
-          </button>
-
+          <a href="{% url 'projects' %}" class="btn btn-primary">All projects</a>
         </div>
       </div>
     </main>
