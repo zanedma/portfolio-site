@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" style="height:100%;">
+  <head>
+    {% include 'styleimports.html' %}
+    <title>Zane Alumbaugh - Updates</title>
+  </head>
+
+  <body class="d-flex flex-column h-100">
+    <header>
+      {% include 'navbar.html' %}
+    </header>
+
+    <main role="main" class="flex-shrink-0">
+      <h1 class="pl-5 pt-3">Updates</h1>
+      <div class="pl-5">
+        <table class="table">
+          <tbody>
+            {% for update in updates.all %}
+              <tr>
+                <td class="align-middle">
+                  <a href="{% url 'updateDetail' update.id %}"><h4>{{ update.title }}</h4></a>
+                  <p class="text-muted">{{ update.pub_date }}</p>
+                </td>
+                <td class="align-middle">
+                  <p>{{ update.summary }}</p>
+                </td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </body>
+  {% include 'footer.html' %}
+  {% include 'scripts.html' %}
+</html>

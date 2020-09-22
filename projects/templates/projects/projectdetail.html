@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" style="height:100%;">
+  <head>
+    {% include 'styleimports.html' %}
+    <title>Zane Alumbaugh - {{ project.name }}</title>
+  </head>
+
+  <body class="d-flex flex-column h-100">
+    <header>
+      {% include 'navbar.html' %}
+    </header>
+
+    <main role="main" class="flex-shrink-0">
+      <div class="pl-5 pr-5">
+        <h1 class="pt-4">{{ project.name }}</h1>
+        <hr>
+        <p>{{ project.body|linebreaks }}</p>
+        {% if project.link != None %}
+          <a href="{{ project.link }}" target="blank">Link</a>
+        {% endif %}
+        <hr/>
+        <div class="btn-group">
+          <button type="button" class="btn btn-primary">
+            <a href="{% url 'projects' %}" style="text-decoration:none; color:white;">All projects</a>
+          </button>
+
+        </div>
+      </div>
+    </main>
+  </body>
+  {% include 'footer.html' %}
+  {% include 'scripts.html' %}
+</html>

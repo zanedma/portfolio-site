@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" style="height:100%;">
+  <head>
+    {% include 'styleimports.html' %}
+    <title>Zane Alumbaugh - Projects</title>
+  </head>
+
+  <body class="d-flex flex-column h-100">
+    <header>
+      {% include 'navbar.html' %}
+    </header>
+
+    <main role="main" class="flex-shrink-0">
+      <h1 class="pl-5 pt-3">Projects</h1>
+      <div class="pl-5">
+          <table class="table">
+            {% for project in projects.all %}
+              <tr>
+                <td>
+                  {% if project.image.url != None %}
+                    <img class="img-fluid" src="{{ project.image.url }}" width="200" height="200" alt="">
+                  {% endif %}
+                </td>
+                <td class="align-middle">
+                  <a href="{% url 'projectDetail' project.id %}"><h4>{{ project.name }}</h4></a>
+                </td>
+                <td class="align-middle">
+                  <p class="pt-2">{{ project.summary }}</p>
+                </td>
+              </tr>
+            {% endfor %}
+        </table>
+      </div>
+    </main>
+  </body>
+  {% include 'footer.html' %}
+  {% include 'scripts.html' %}
+</html>

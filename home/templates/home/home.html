@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    {% include 'styleimports.html' %}
+    {% load static %}
+    <title>Zane Alumbaugh - Portfolio</title>
+  </head>
+  <body class="d-flex flex-column h-100">
+    <header>
+      {% include 'navbar.html' %}
+    </header>
+
+    <main role="main" class="flex-shrink-0">
+
+      <section class="jumbotron text-center">
+        <div class="container">
+          <h1>{{ home_vals.header }}</h1>
+          <p class="lead">{{ home_vals.welcome_msg }}</p>
+          {% if home_vals.headshot.url != None %}
+            <img class="img-fluid" src="{{ home_vals.headshot.url }}" alt="headshot" height="200" width="200">
+          {% endif %}
+          <p>
+            <a href="mailto:zanedma@gmail.com" class="btn btn-primary my-2">Email Me</a>
+            <a href="{% static 'ZaneAlumbaughResume.pdf' %}" class="btn btn-secondary my-2" target="blank">Resume</a>
+          </p>
+        </div>
+      </section>
+
+      <div class="album py-5 bg-light">
+        <div class="container">
+          <h1 class="text-center">Featured Projects</h1>
+          {% include 'projectcards.html' %}
+        </div>
+      </div>
+
+      <div class="album py-5 bg-light">
+        <div class="container">
+          <h1 class="text-center">Recent Updates</h1>
+          {% include 'recentupdates.html' %}
+      </div>
+    </main>
+  </body>
+
+  {% include 'footer.html' %}
+  {% include 'scripts.html' %}
+</html>

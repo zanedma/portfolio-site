@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+
+<style media="screen">
+  .card-img-top {
+    width: 100%;
+    height: 15vw;
+    object-fit: cover;
+  }
+</style>
+
+<div class="album py-5 bg-light">
+  <div class="container">
+    <div class="row">
+      {% for update in updates.all %}
+        <div class="col-md-4">
+          <div class="card mb-4 h-100">
+            <div class="text-center pt-3 pl-2 pr-2">
+              <h4 class="card-title">{{ update.title }}</h4>
+              <p class="text-muted">{{ update.pub_date }}</p>
+              <p>{{ update.summary }}</p>
+            </div>
+            <div class="card-body text-center  d-flex flex-column justify-content-end">
+              <div class="btn-group">
+                <a class="btn btn-primary" href="{% url 'updateDetail' update.id %}" role="button">View</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>

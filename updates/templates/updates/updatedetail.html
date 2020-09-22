@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" style="height:100%;">
+  <head>
+    {% include 'styleimports.html' %}
+    <title>Zane Alumbaugh - {{ update.title }}</title>
+  </head>
+
+  <body class="d-flex flex-column h-100">
+    <header>
+      {% include 'navbar.html' %}
+    </header>
+
+    <main role="main" class="flex-shrink-0">
+      <div class="pl-5 pr-5">
+        <h1 class="pt-4">{{ update.title }}</h1>
+        <hr>
+        <p>{{ update.body|linebreaks }}</p>
+        <div class="btn-group">
+          <button type="button" class="btn btn-primary">
+            <a href="{% url 'updates' %}" style="text-decoration:none; color:white;">All updates</a>
+          </button>
+
+        </div>
+      </div>
+    </main>
+  </body>
+  {% include 'footer.html' %}
+  {% include 'scripts.html' %}
+</html>
