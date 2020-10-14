@@ -15,7 +15,7 @@
       {% for project in projects.all %}
         {% if project.featured %}
           <div class="col-auto">
-            <div class="card mb-4 w-25 h-100">
+            <div class="card mb-4">
               {% if project.image.url != None %}
                 <img class="card-img-top" src="{{ project.image.url }}">
               {% endif %}
