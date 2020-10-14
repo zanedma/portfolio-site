@@ -8,6 +8,6 @@ def home(request):
     context = {
         'home_vals': Home.objects.get(pk=1),
         'projects': Project.objects,
-        'updates': Update.objects.all().order_by('pub_date')[:3]
+        'updates': Update.objects.all().order_by('-pub_date')[:3]
     }
     return render(request, 'home/home.html', context)
