@@ -14,8 +14,8 @@
     <div class="row justify-content-center">
       {% for project in projects.all %}
         {% if project.featured %}
-          <!-- <div class="col-auto"> -->
-            <div class="card mb-4" style="width: 200px; height: 300px;">
+          <div class="col-auto">
+            <div class="card" style="width: 200px; height: 300px;">
               {% if project.image.url != None %}
                 <img class="card-img-top" src="{{ project.image.url }}">
               {% endif %}
