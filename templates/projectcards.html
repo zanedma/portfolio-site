@@ -11,10 +11,10 @@
 
 <div class="album py-5 bg-light">
   <div class="container">
-    <div class="row justify-content-center">
+    <div class="row">
       {% for project in projects.all %}
         {% if project.featured %}
-          <div class="col-auto">
+          <div class="col-sm">
             <div class="card mb-4 h-100">
               {% if project.image.url != None %}
                 <img class="card-img-top" src="{{ project.image.url }}">
