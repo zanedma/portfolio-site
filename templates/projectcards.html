@@ -14,8 +14,8 @@
     <div class="row">
       {% for project in projects.all %}
         {% if project.featured %}
-          <div class="col-sm">
-            <div class="card mb-4 h-100" style="width: 18rem">
+          <div class="card-group">
+            <div class="card mb-4 h-100">
               {% if project.image.url != None %}
                 <img class="card-img-top" src="{{ project.image.url }}">
               {% endif %}
